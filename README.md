@@ -1,5 +1,7 @@
 # Agentic Playwright MCP
 
+![Agentic Playwright MCP Banner](assets/hero-banner.png)
+
 Production-ready starter for **UI + API test automation** with Playwright, TypeScript, Page Object Model, and AI-powered agents via MCP.
 
 This repository implements an agentic automation framework using Playwright and the Model Context Protocol (MCP).
@@ -18,32 +20,45 @@ This repository implements an agentic automation framework using Playwright and 
 - **AI Workspace (`ai/`)** — Centralized AI Agent logic, skills, and orchestrations
 - **GitHub Pages** for publishing reports
 
+### 🤖 Meet the Agent Squad
+
+![Autonomous Agent Squad](assets/agent-squad.png)
+
 ---
+
+## 🔄 Autonomous Testing Lifecycle
+
+![Autonomous Testing Cycle](assets/testing-loop.png)
 
 ## 🚀 Getting Started
 
 1. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 2. **Set up environment:**
+
    ```bash
    cp .env.example .env
    # Edit .env → set BASE_URL to your app (defaults to http://localhost:3000)
    ```
 
 3. **Set up MCP (optional, for your AI agent users):**
+
    ```bash
    cp .mcp.json.example .mcp.json
    ```
 
 4. **Install Playwright browsers:**
+
    ```bash
    npx playwright install --with-deps
    ```
 
 5. **Run tests:**
+
    ```bash
    npm test
    # Or run specific suites
@@ -90,6 +105,10 @@ The `ai/` directory is an orchestrator-agnostic workspace for LLM Tools, Github 
 See [AGENTS.md](AGENTS.md) at the repo root for more context on AI conventions.
 
 12 agent instructions are included out of the box to accelerate your QA workflows, including `ui-test-designer`, `api-coverage-planner`, `flake-triage`, `test-generator`, etc.
+
+### 🩹 Intelligent Self-Healing
+
+![AI Self-Healing](assets/self-healing.png)
 
 Copy-paste-ready AI prompts are located in the [Prompt Library](docs/PROMPT_LIBRARY.md).
 
