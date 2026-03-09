@@ -2,13 +2,13 @@ export type ProviderType = 'openai' | 'claude' | 'copilot';
 
 export interface AgentResponse {
     success: boolean;
-    data?: any;
+    data?: unknown;
     error?: string;
-    metadata?: Record<string, any>;
+    metadata?: Record<string, unknown>;
 }
 
 export interface Skill {
     name: string;
     description: string;
-    execute: (input: any) => Promise<AgentResponse>;
+    execute: (input: unknown) => Promise<AgentResponse>;
 }

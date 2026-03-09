@@ -1,8 +1,8 @@
 export const telemetry = {
     logEvent: (event: string, data: any) => {
-        console.log(`[Telemetry] ${event}:`, data);
+        console.info(`[Telemetry] ${event}:`, data);
     },
     logError: (error: Error) => {
-        console.error(`[Telemetry Error]`, error);
+        console.info(`[Telemetry Error]`, error);
     }
 };

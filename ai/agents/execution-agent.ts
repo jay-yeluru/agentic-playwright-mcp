@@ -1,6 +1,6 @@
 export class ExecutionAgent {
     async execute(testSuite: string) {
-        console.log(`Executing test suite: ${testSuite}`);
+        console.info(`Executing test suite: ${testSuite}`);
         // Logic to run Playwright tests
         return {
             suite: testSuite,

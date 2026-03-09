@@ -5,12 +5,12 @@ import { DashboardPage } from '../../pages/dashboard.page';
 test.describe('Login Flow', () => {
     test('should login successfully with valid credentials', async ({ page }) => {
         const loginPage = new LoginPage(page);
-        const dashboardPage = new DashboardPage(page);
+        const _dashboardPage = new DashboardPage(page);
 
-        await loginPage.navigate('https://example.com/login');
+        await loginPage.navigateToLogin();
         await loginPage.login('testuser', 'testpassword');
 
         // This is a placeholder example
-        // expect(await dashboardPage.isVisible()).toBeTruthy();
+        // _expect(await dashboardPage.isVisible()).toBeTruthy();
     });
 });

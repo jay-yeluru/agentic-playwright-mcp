@@ -1,6 +1,6 @@
 export class RequirementAgent {
     async process(requirement: string) {
-        console.log(`Processing requirement: ${requirement}`);
+        console.info(`Processing requirement: ${requirement}`);
         // Logic to analyze requirements
         return {
             original: requirement,

@@ -10,7 +10,8 @@
     "test:debug": "npx playwright test --debug",
     "report": "npx allure serve reports/allure-results",
     "lint": "eslint . --ext .ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "keywords": [
     "playwright",
@@ -30,15 +31,24 @@
     "@typescript-eslint/parser": "^7.0.0",
     "allure-playwright": "^2.13.0",
     "eslint": "^8.57.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.3.2",
     "prettier": "^3.2.5",
     "typescript": "^5.7.0"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.1",
-    "zod": "^3.22.4",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "zod": "^3.22.4"
   },
   "engines": {
     "node": ">=18"
+  },
+  "lint-staged": {
+    "*": {
+      "ts": "eslint --fix",
+      "json": "prettier --write",
+      "md": "prettier --write"
+    }
   }
 }

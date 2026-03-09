@@ -21,13 +21,13 @@ export class AgentOrchestrator {
     }
 
     async runFullAutomationWorkflow(requirement: string) {
-        console.log(`Starting Full Automation Workflow for: ${requirement}`);
+        console.info(`Starting Full Automation Workflow for: ${requirement}`);
 
         // 1. Analyze Requirements
-        const processedReq = await this.agents.requirement.process(requirement);
+        const _processedReq = await this.agents.requirement.process(requirement);
 
         // 2. Generate Tests
-        const generatedSuite = await this.agents.testGeneration.generate(processedReq);
+        const generatedSuite = await this.agents.testGeneration.generate(_processedReq);
 
         // 3. Execute Tests
         const results = await this.agents.execution.execute(generatedSuite);
