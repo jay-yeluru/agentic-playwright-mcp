@@ -1,5 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
+import 'dotenv/config';
+import { Timeouts } from './utils';
 
+const AUTH_STATE_PATH = '.auth/state.json';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -21,33 +24,55 @@ export default defineConfig({
     ],
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     use: {
-        /* Base URL to use in actions like `await page.goto('/')`. */
-        // baseURL: 'http://127.0.0.1:3000',
-
-        /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+        baseURL: process.env.BASE_URL || 'http://localhost:3000',
+        actionTimeout: Timeouts.LONG,
+        navigationTimeout: Timeouts.NAVIGATION,
         trace: 'on-first-retry',
-        video: 'on-first-retry',
+        video: 'retain-on-failure',
         screenshot: 'only-on-failure',
+        extraHTTPHeaders: {
+            'Accept': 'application/json',
+        },
     },
 
     /* Configure projects for major browsers */
     projects: [
         {
-            name: 'chromium',
-            use: { ...devices['Desktop Chrome'] },
+            name: 'setup',
+            testMatch: /.*\.setup\.ts/,
         },
-
+        {
+            name: 'chromium',
+            use: {
+                ...devices['Desktop Chrome'],
+                storageState: AUTH_STATE_PATH,
+            },
+            dependencies: ['setup'],
+        },
         {
             name: 'firefox',
-            use: { ...devices['Desktop Firefox'] },
+            use: {
+                ...devices['Desktop Firefox'],
+                storageState: AUTH_STATE_PATH,
+            },
+            dependencies: ['setup'],
         },
-
         {
             name: 'webkit',
-            use: { ...devices['Desktop Safari'] },
+            use: {
+                ...devices['Desktop Safari'],
+                storageState: AUTH_STATE_PATH,
+            },
+            dependencies: ['setup'],
+        },
+        {
+            name: 'api',
+            testDir: './tests/api',
+            use: {
+                baseURL: process.env.API_BASE_URL || 'https://httpbin.org',
+            },
         },
     ],
-
     /* Run your local dev server before starting the tests */
     // webServer: {
     //   command: 'npm run start',
