@@ -30,6 +30,12 @@ This repository implements an agentic automation framework using Playwright and 
 
 ![Autonomous Testing Cycle](assets/testing-loop.png)
 
+## 🛤️ Stepwise Agent Flow
+
+![Agentic Workflow](assets/stepwise-flow.png)
+
+---
+
 ## 🚀 Getting Started
 
 1. **Install dependencies:**
